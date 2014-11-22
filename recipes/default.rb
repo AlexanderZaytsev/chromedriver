@@ -26,6 +26,8 @@
 
 package 'unzip'
 
+log "Downloading #{node[:chromedriver][:source_url]} to #{node[:chromedriver][:full_path]}"
+
 remote_file node[:chromedriver][:full_path] do
   source node[:chromedriver][:source_url]
   notifies :run, 'execute[unzip_chromedriver]', :immediately
